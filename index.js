@@ -1,14 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import usersRouter from './routes/usersRoute.js' //import karanwa
 import mongoose from 'mongoose'
-import galleryItemRouter from './routes/galleryItemRoute.js'
 import jwt from 'jsonwebtoken'
-import categoryRouter from './routes/categoryRoute.js'
 import dotenv from 'dotenv'
-import roomRouter from './routes/roomRoom.js'
-import bookingRouter from './routes/bookingRoute.js'
-import feedbackRouter from './routes/feedbackRoute.js'
 import cors from 'cors'
 
 
