@@ -30,6 +30,8 @@ mongoose.connect(connectionString).then(     //use mogoose to connect db.
                               
 
 
-app.listen(5000,(req,res)=>{
- console.log("Sever is running on port 5000")
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
