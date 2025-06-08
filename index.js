@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import cors from 'cors'
-import employeeRouter from './routes/employeeRoutes'
+import employeeRouter from './routes/employeeRoutes.js'
 
 
 dotenv.config()

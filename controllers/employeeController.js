@@ -1,4 +1,4 @@
-import Employee from "../models/employee.js";
+import Employee from "../models/employe.js";
 
 // Create employee
 export function createEmployee(req, res) {
