@@ -17,18 +17,33 @@ export function createEmployee(req, res) {
     });
 }
 
-// View all employees
+// View all employees with pagination
 export function viewEmployees(req, res) {
-    Employee.find().then(result => {
+    // Get page and limit from query params, default page=1 and limit=10
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+
+    const skip = (page - 1) * limit;
+
+    Promise.all([
+        Employee.countDocuments(),
+        Employee.find().skip(skip).limit(limit)
+    ])
+    .then(([totalCount, employees]) => {
         res.json({
-            employees: result
+            totalCount,
+            totalPages: Math.ceil(totalCount / limit),
+            currentPage: page,
+            employees
         });
-    }).catch(() => {
+    })
+    .catch(() => {
         res.status(500).json({
             message: "Failed to fetch employees"
         });
     });
 }
+
 
 // Get single employee by ID
 export function getEmployeeById(req, res) {
